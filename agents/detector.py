@@ -78,12 +78,11 @@ class CoinDetectorAgent:
 
         try:
             response = await self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-5-nano",
                 messages=[
                     {"role": "system", "content": "You are a cryptocurrency coin identifier."},
                     {"role": "user", "content": prompt}
-                ],
-                temperature=0
+                ]
             )
             response_text = response.choices[0].message.content.strip()
 
