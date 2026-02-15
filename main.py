@@ -1,5 +1,7 @@
 from telegram import Update, BotCommand
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+
+from logger import logger
 from orchestrator import CryptoAISystem
 from config import config
 import json
@@ -128,7 +130,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         final_message = result + usage_msg
         await analyzing_msg.edit_text(final_message, parse_mode="MarkdownV2")
     except Exception as e:
-        await analyzing_msg.edit_text(f"❌ Error in processing your request. Please try again.\nError: {str(e)}")
+        logger.error(f"Error in handling the message: {e}")
+        await analyzing_msg.edit_text(f"❌ عذرا!! هناك خطأ في معالجة طلبك")
 
 
 # ----------- New Commands -----------

@@ -261,13 +261,14 @@ Output Language: {user_language}
 
             # Initial API call
             response = await self.client.chat.completions.create(
-                model="gpt-5.1",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": self.system_prompt},
                     *self.conversation_history
                 ],
                 tools=self.tools,
                 tool_choice="auto",
+                temperature=0.1
             )
 
             response_message = response.choices[0].message
@@ -313,11 +314,12 @@ Output Language: {user_language}
 
                 # Get the final response with tool results
                 response = await self.client.chat.completions.create(
-                    model="gpt-5-mini",
+                    model="gpt-4o-mini",
                     messages=[
                         {"role": "system", "content": self.system_prompt},
                         *self.conversation_history
-                    ]
+                    ],
+                    temperature=0.1
                 )
 
                 response_message = response.choices[0].message
