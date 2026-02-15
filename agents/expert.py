@@ -217,7 +217,7 @@ CRITICAL RULES:
                 }
 
                 logger.info("Successfully run crypto analysis tool async.")
-                logger.info(f"data: {data}")
+                # logger.info(f"data: {data}")
 
                 return data
 
@@ -261,13 +261,13 @@ Output Language: {user_language}
 
             # Initial API call
             response = await self.client.chat.completions.create(
-                model="gpt-5-mini",
+                model="gpt-5.1",
                 messages=[
                     {"role": "system", "content": self.system_prompt},
                     *self.conversation_history
                 ],
                 tools=self.tools,
-                tool_choice="auto"
+                tool_choice="auto",
             )
 
             response_message = response.choices[0].message
@@ -317,8 +317,7 @@ Output Language: {user_language}
                     messages=[
                         {"role": "system", "content": self.system_prompt},
                         *self.conversation_history
-                    ],
-                    temperature=0.1
+                    ]
                 )
 
                 response_message = response.choices[0].message
