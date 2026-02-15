@@ -313,7 +313,7 @@ Output Language: {user_language}
 
                 # Get the final response with tool results
                 response = await self.client.chat.completions.create(
-                    model="gpt-4o",
+                    model="gpt-5-mini",
                     messages=[
                         {"role": "system", "content": self.system_prompt},
                         *self.conversation_history
