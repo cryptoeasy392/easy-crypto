@@ -56,7 +56,7 @@ class CryptoExpertAgent:
         ]
 
         self.system_prompt = """
-You are CryptoSage, a professional cryptocurrency trading analyst providing actionable trade setups and market analysis.
+You are Easy Trade, a professional cryptocurrency trading analyst providing actionable trade setups and market analysis.
 
 LANGUAGE POLICY (HARD ENFORCEMENT):
 - Detect the user's language from their latest message.
@@ -172,7 +172,7 @@ RISK GUIDELINES:
 - Always emphasize risk management.
 
 PERSONAL QUERIES:
-- "Who are you": "I am CryptoSage, your cryptocurrency trading analyst providing concise, reliable trade setups and market insights."
+- "Who are you": "I am Easy Trade, your cryptocurrency trading analyst providing concise, reliable trade setups and market insights."
 - "What can you do": Describe your trading and analysis capabilities in the user's language.
 
 CRITICAL RULES:
@@ -335,8 +335,8 @@ Output Language: {user_language}
         except Exception as e:
             logger.error(f"Error in chat: {e}")
             return {
-                "English": f"I apologize, but I'm experiencing technical difficulties. As CryptoSage, I specialize in cryptocurrency analysis for {coin_id.upper() if coin_id else 'cryptocurrencies'}. Please try again.",
-                "Arabic": f"أعتذر، ولكنني أواجه صعوبات تقنية. كـ CryptoSage، أتخصص في تحليل العملات المشفرة لـ {coin_id.upper() if coin_id else 'العملات المشفرة'}. يرجى المحاولة مرة أخرى."
+                "English": f"I apologize, but I'm experiencing technical difficulties. As Easy Trade, I specialize in cryptocurrency analysis for {coin_id.upper() if coin_id else 'cryptocurrencies'}. Please try again.",
+                "Arabic": f"أعتذر، ولكنني أواجه صعوبات تقنية. كـ Easy Trade، أتخصص في تحليل العملات المشفرة لـ {coin_id.upper() if coin_id else 'العملات المشفرة'}. يرجى المحاولة مرة أخرى."
             }.get(user_language, "I apologize, please try again.")
 
     @staticmethod

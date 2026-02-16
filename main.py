@@ -93,8 +93,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = get_user_data(user_id)  # Initialize user in database
 
     welcome_message = (
-        "🌟 مرحباً بك في CryptoSage 🌟\n\n"
-        "🔮 حكيم العملات الرقمية يرحب بك!\n\n"
+        "🌟 مرحباً بك في Easy Trade 🌟\n\n"
         "أنا هنا لمساعدتك في تحليل العملات الرقمية وتقديم أفضل التوصيات.\n\n"
         "🎁 لديك 10 طلبات مجانية للبدء!\n\n"
         "استخدم الأوامر التالية:\n"
@@ -115,7 +114,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not has_access:
         await update.message.reply_text(
             "⚠️ You have used all your free requests!\n"
-            "Please subscribe to continue using CryptoSage."
+            "Please subscribe to continue using Easy Trade."
         )
         return
 
@@ -144,7 +143,7 @@ async def spot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not has_access:
         await update.message.reply_text(
             "⚠️ You have used all your free requests!\n"
-            "Please subscribe to continue using CryptoSage."
+            "Please subscribe to continue using Easy Trade."
         )
         return
 
@@ -174,7 +173,7 @@ async def futures(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not has_access:
         await update.message.reply_text(
             "⚠️ You have used all your free requests!\n"
-            "Please subscribe to continue using CryptoSage."
+            "Please subscribe to continue using Easy Trade."
         )
         return
 
@@ -201,11 +200,10 @@ async def analysis(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle futures trade analysis"""
     user_id = update.effective_user.id
     has_access, remaining = check_user_limit(user_id)
-
     if not has_access:
         await update.message.reply_text(
             "⚠️ You have used all your free requests!\n"
-            "Please subscribe to continue using CryptoSage."
+            "Please subscribe to continue using Easy Trade."
         )
         return
 
